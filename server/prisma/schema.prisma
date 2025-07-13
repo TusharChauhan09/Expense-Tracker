@@ -7,11 +7,13 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Transactions {
-  id String @id @default(uuid())
-  uer_id String 
-  title String
-  amount Decimal @db.Decimal(10,2)
-  category String
+model Transaction {
+  id         String   @id @default(uuid())
+  user_id    String
+  title      String
+  amount     Decimal  @db.Decimal(10, 2)
+  category   String
   created_at DateTime @default(now())
 }
+
+// user uuid / user table and relationship
