@@ -1,5 +1,11 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from '@prisma/client';
+export const client = new PrismaClient();
 
-const client = new PrismaClient();
+async function main() {
+  await client.$connect();
+  console.log("Connected successfully!");
+}
 
-export default client;
+main().catch((e) => {
+  console.error(e);
+});

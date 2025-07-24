@@ -1,8 +1,6 @@
 import { Request, Response } from "express";
-
+import { client } from "../lib/db"; 
 import { z } from "zod";
-
-import client from "../lib/db";
 
 export const getTransactionsUserId  = async (req: Request, res:Response) => {
   try {
@@ -149,11 +147,9 @@ export const getTransacionsSummaryUserId  = async (req: Request, res:Response) =
 
     res.status(200).json({
       message: "Fetched the summary successfully",
-      summary: {
-        balance,
-        income,
-        expense,
-      },
+      balance,
+      income,
+      expenses: expense,
     });
   } catch (error) {
     console.error("Error fetching summary:", error);
