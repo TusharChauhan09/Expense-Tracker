@@ -2,6 +2,7 @@ import { Stack, Slot } from "expo-router";
 import SafeScreenProvider from "@/providers/SafeScreenProvider";
 import { ClerkProvider } from "@clerk/clerk-expo";
 import { tokenCache } from "@clerk/clerk-expo/token-cache";
+import { StatusBar } from "expo-status-bar";
 
 export default function RootLayoutNav() {
   return (
@@ -11,6 +12,7 @@ export default function RootLayoutNav() {
       >
         <Slot />
       </ClerkProvider>
+      <StatusBar style="dark" />
     </SafeScreenProvider>
   );
 }
